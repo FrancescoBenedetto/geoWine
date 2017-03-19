@@ -1,0 +1,17 @@
+{
+  "name": "wine-mapper",
+  "version": "1.0.0",
+  "description": "app to map wines to geographic location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Francesco Benedetto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.9.0",
+    "nodemon": "^1.11.0"
+  }
+}
