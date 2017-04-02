@@ -11,9 +11,20 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
-    "mongoose": "^4.9.0",
     "nodemon": "^1.11.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancescoBenedetto/geoWine.git"
+  },
+  "keywords": [
+    "wine",
+    "winery",
+    "geolocation"
+  ],
+  "bugs": {
+    "url": "https://github.com/FrancescoBenedetto/geoWine/issues"
+  },
+  "homepage": "https://github.com/FrancescoBenedetto/geoWine#readme"
 }
