@@ -1,17 +1,18 @@
 var express = require('express');
 var app = express();
 var Connection = require('./src/persistence/Connection.js');
-var WineryDAOFactory = require('./src/persistence/Winery.js');
+var WineryDAO = require('./src/persistence/WineryDAO.js');
 var Sequelize = require('sequelize');
 
 
 var conn = new Connection();
 conn.testConnection();
 //get all Wineries
-var WineryDAO = WineryDAOFactory(conn.getConnection(), Sequelize);
-WineryDAO.findAll({raw:true}).then(function(wineries){
-  console.log(wineries);
-});
+var wyDAO = new WineryDAO(conn.getConnection(), Sequelize);
+wyDAO.findAll({raw:true})
+  .then(function(wineries){
+    console.log(wineries);
+  });
 
 
 

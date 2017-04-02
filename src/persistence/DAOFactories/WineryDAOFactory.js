@@ -1,4 +1,5 @@
 /* jshint indent: 2 */
+//TODO: add street address.
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('winery', {

@@ -4,7 +4,7 @@ class Wine {
   constructor(name, type, description, geographicInformations) {
     this.name = name;
     this.description = description;
-    this.geographicInformations = geographicInformations;
+    this.type = type;
   }
   getName() {
     return this.name;
@@ -15,9 +15,6 @@ class Wine {
   getDescription() {
     return this.description;
   }
-  getGeoInfos() {
-    return this.geographicInformations;
-  }
   setName(name) {
     this.name = name;
   }
@@ -26,9 +23,6 @@ class Wine {
   }
   setDescription(description) {
     this.description = description;
-  }
-  setGeoInfos(geographicInformations) {
-    this.geographicInformations = geographicInformations;
   }
 }
 
