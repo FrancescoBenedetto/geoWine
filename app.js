@@ -9,7 +9,7 @@ var conn = new Connection();
 conn.testConnection();
 //get all Wineries
 var wyDAO = new WineryDAO(conn.getConnection(), Sequelize);
-wyDAO.findAll({raw:true})
+wyDAO.findByName("Gianfranco Fino")
   .then(function(wineries){
     console.log(wineries);
   });
