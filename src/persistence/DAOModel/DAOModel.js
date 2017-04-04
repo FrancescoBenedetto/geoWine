@@ -1,9 +1,9 @@
 var DataTypes = require("sequelize");
-var connection = require("./Connection.js").connection;
+var connection = require("../Connection.js").connection;
 
 //connection.sync({force:true});
 
-var WineDAO = connection.define('wine', {
+var Wine = connection.define('wine', {
   id: {
     type: DataTypes.BIGINT,
     allowNull: false,
@@ -27,7 +27,7 @@ var WineDAO = connection.define('wine', {
   tableName: 'wine'
 });
 
-var WineryDAO = connection.define('winery', {
+var Winery = connection.define('winery', {
   id: {
     type: DataTypes.BIGINT,
     allowNull: false,
@@ -62,7 +62,7 @@ var WineryDAO = connection.define('winery', {
   tableName: 'winery'
 });
 
-var Winery2WineDAO = connection.define('winery_to_wine', {
+var Winery2Wine = connection.define('winery_to_wine', {
     winerys_wine_description: {
       type: DataTypes.STRING(200),
       allowNull: true
@@ -72,8 +72,8 @@ var Winery2WineDAO = connection.define('winery_to_wine', {
   });
 
 
-WineDAO.belongsToMany(WineryDAO, { through: Winery2WineDAO });
-WineryDAO.belongsToMany(WineDAO, { through: Winery2WineDAO });
+Wine.belongsToMany(Winery, { through: Winery2Wine });
+Winery.belongsToMany(Wine, { through: Winery2Wine });
 
-module.exports.WineDAO = WineDAO;
-module.exports.WineryDAO = WineryDAO;
+module.exports.Wine = Wine;
+module.exports.Winery = Winery;

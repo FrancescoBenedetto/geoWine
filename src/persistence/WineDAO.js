@@ -1,9 +1,8 @@
-var WineDAOFactory = require('./DAOFactories/WineDAOFactory.js');
+var WineDAOFactory = require('./DAOModel/DAOModel.js').WineDAO;
 
 class WineDAO {
   constructor(connection, DataTypes) {
-    this.dao =  WineDAOFactory(connection, DataTypes);
-    this.rawOption = {raw: true};
+    this.dao =  WineDAOFactory;
   }
   findAll() {
     return this.dao.findAll({raw:true});
