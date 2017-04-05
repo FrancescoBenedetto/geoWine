@@ -1,7 +1,6 @@
-module.exports = function() {
-  var winedao = require('../persistence/wine-dao');
+var winedao = require('../persistence/wine-dao');
 
-  var findById = function(req, res, next, id) {
+exports.findById = function(req, res, next, id) {
     winedao.findById(req.params.id)
       .then(
         function(wine){
@@ -9,19 +8,23 @@ module.exports = function() {
           next();
         },
         function(err){
-          res.send('error' : err);
+          return res.send('error' : err);
         })
-      }
-  var add = function(req, res, next) {
+}
+exports.find = function(req, res, next) {
+  return res.json(req.wine);
+}
+exports.add = function(req, res, next) {
     var wine = new Wine(req.body);
-    winedao.save(wine)
+    return winedao.save(wine)
       .then(
         function(addedWine) {
-          res.json(addedWine);
+          return res.json(addedWine);
         },
         function(err){
-          res.send({'error' : err});
+          return res.send({'error' : err});
         }
-  }
-
 }
+
+exports.update = function(req, res, next) {}
+exports.delete = function(req, res, next) {}

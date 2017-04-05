@@ -1,10 +1,18 @@
 var express = require('express');
 var app = express();
-var WineryDAO = require('./src/persistence/WineryDAO.js');
+var Sequelize = require('sequelize');
+var models = require('./src/model');
 
-new WineryDAO().findWinesById(1)
-  .then(function(res){
-    console.log(res);});
+
+
+models.wine.findAll({
+  raw:true,
+  include : [{model: models.winery}]
+})
+.then(function(wines){
+  console.log(wines);
+})
+
 
 app.get('/', function(req, res){
   res.send("Hello World");

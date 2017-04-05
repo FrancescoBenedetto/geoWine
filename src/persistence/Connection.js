@@ -44,6 +44,6 @@ class Connection {
   }
 }
 
-module.exports.ConnectionFactory = Connection;
+module.exports = Connection;
 
-module.exports.connection = new Connection().getConnection();
+//module.exports.connection = new Connection().getConnection();

@@ -8,7 +8,7 @@ module.exports = function(app){
 
     wine.route('/:id')
       // Get Wine by Id
-      .get(wine.findById)
+      .get(wine.find)
       // Update a Wine with a given id
       .put(wine.update);
       // Delete Wine with given id
