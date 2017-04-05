@@ -1,14 +1,20 @@
-var winedao = require('../persistence/wine-dao');
+var models = require('../model/');
+var wine = models.wine;
 
 exports.findById = function(req, res, next, id) {
-    winedao.findById(req.params.id)
+  //check params
+    wine.find(
+      {
+      raw: true,
+      where: {id: req.params.id}
+    })
       .then(
-        function(wine){
+        function(wine){             //success
           req.wine = wine;
           next();
         },
-        function(err){
-          return res.send('error' : err);
+        function(err){              //error
+          return res.send({'error' : err});
         })
 }
 exports.find = function(req, res, next) {
@@ -23,7 +29,7 @@ exports.add = function(req, res, next) {
         },
         function(err){
           return res.send({'error' : err});
-        }
+        })
 }
 
 exports.update = function(req, res, next) {}
