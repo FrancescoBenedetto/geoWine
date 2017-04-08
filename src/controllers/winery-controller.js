@@ -1,42 +1,42 @@
 var models = require('../model/');
-var wine = models.wine;
+var winery = models.winery;
 
 exports.checkParams = function(req, res, next, id) {
   //check params
     next();
 }
 exports.findById = function(req, res, next) {
-  wine.findById(req.params.id)
+  winery.findById(req.params.id)
     .then(
-      function(wine){             //success
-        return res.json(wine);
+      function(winery){             //success
+        return res.json(winery);
       },
       function(err){              //error
         return res.send({'error' : err});
       })
 }
 exports.add = function(req, res, next) {
-    return wine.create(req.body)
+    return winery.create(req.body)
       .then(
-        function(addedWine) {
-          return res.send('successfully added wine: '+ addedWine);
+        function(addedwinery) {
+          return res.send('successfully added winery: '+ addedwinery);
         },
         function(err){
           return res.send({'error' : err});
         })
 }
 exports.update = function(req, res, next) {
-  return wine.update(req.body, {where: {id: req.params.id}})
+  return winery.update(req.body, {where: {id: req.params.id}})
     .then(
-      function(updatedWine){
-      return res.send('successfully updated wine');
+      function(updatedwinery){
+      return res.send('successfully updated winery');
     },
       function(err){
         return res.send('error '+ err +' updating '+ req.body);
       })
 }
 exports.delete = function(req, res, next) {
-  return wine.destroy({where:{id:req.params.id}})
+  return winery.destroy({where:{id:req.params.id}})
     .then(
       function(result){
         return res.send('successfully deleted')

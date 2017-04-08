@@ -21,6 +21,8 @@ app.get('/', function(req, res){
 });
 //app.use(express.bodyParser());
 var wine_routes = require('./src/routes/wine-routes')(express, app);
+var winery_routes = require('./src/routes/winery-routes')(express, app);
+
 
 app.listen(3000, function(){
   console.log('Example app listening on port 3000!');
