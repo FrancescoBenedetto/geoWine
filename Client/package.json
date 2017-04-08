@@ -1,7 +1,7 @@
 {
-  "name": "angular2-seed",
+  "name": "geo_wine-client",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "client for geo_wine",
   "scripts": {
     "build": "webpack --progress",
     "watch": "npm run build -- --watch",
@@ -9,8 +9,7 @@
     "start": "npm run server"
   },
   "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
+    "Francesco Benedetto <fra.benedetto.91@gmail.com>"
   ],
   "license": "MIT",
   "dependencies": {

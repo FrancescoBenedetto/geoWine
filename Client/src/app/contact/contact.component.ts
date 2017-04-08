@@ -13,9 +13,6 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, CustomValidators.validateEmail]],
-      content: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
   submitForm(): void {
