@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var Sequelize = require('sequelize');
 var models = require('./src/model');
+var bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 
 /*
 models.wine.findAll({
@@ -17,7 +19,7 @@ models.wine.findAll({
 app.get('/', function(req, res){
   res.send("Hello World");
 });
-
+//app.use(express.bodyParser());
 var wine_routes = require('./src/routes/wine-routes')(express, app);
 
 app.listen(3000, function(){
