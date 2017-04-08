@@ -1,0 +1,28 @@
+version: "2"
+services:
+  web:
+    build: .
+    volumes:
+      - ./:/app
+    #  - /app/node_modules #to map node_modules folder from docker image to host's folder
+    ports:
+      - "3000:3000"
+    links:
+      - db
+  phpmyadmin:
+     image: phpmyadmin/phpmyadmin
+     links:
+      - db:db
+     ports:
+       - "80:80"
+  db:
+     image: mysql
+     environment:
+       - MYSQL_USER=user
+       - MYSQL_PASSWORD=secret
+       - MYSQL_ROOT_PASSWORD=root
+       #- MYSQL_ROOT_HOST=127.0.0.1
+     ports:
+       - "3306:3306"
+     volumes:
+       - /data/mysql:/var/lib/mysql

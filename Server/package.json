@@ -1,0 +1,32 @@
+{
+  "name": "wine-mapper",
+  "version": "1.0.0",
+  "description": "app to map wines to geographic location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Francesco Benedetto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
+    "sequelize": "^3.30.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancescoBenedetto/geoWine.git"
+  },
+  "keywords": [
+    "wine",
+    "winery",
+    "geolocation"
+  ],
+  "bugs": {
+    "url": "https://github.com/FrancescoBenedetto/geoWine/issues"
+  },
+  "homepage": "https://github.com/FrancescoBenedetto/geoWine#readme"
+}
