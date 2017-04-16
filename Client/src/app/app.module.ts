@@ -1,28 +1,22 @@
-import { NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router';
-import { rootRouterConfig } from './app.routes';
+import { NgModule } from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+
+
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { ContactComponent } from './contact/contact.component';
+import { WineriesMapComponent }  from './wineries-map/map.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    RouterModule.forRoot(rootRouterConfig, { useHash: true })
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBhYrSrv8bUiBUMWDI4TlSTXmg51yYEU-I'
+    })
   ],
-  providers: [
+  declarations: [
+    AppComponent,
+    WineriesMapComponent
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule {
-
-}
+export class AppModule { }
