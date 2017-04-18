@@ -1,5 +1,5 @@
 var models = require('../model/');
-var helper = require('winery-helper');
+var helper = require('./winery-helper');
 var winery = models.winery;
 
 exports.checkParams = function(req, res, next, id) {
@@ -49,20 +49,23 @@ exports.delete = function(req, res, next) {
 }
 
 exports.findWineriesIn = function(req, res, next) {
-  var minLat = req.params('minLat'),
-    maxLat = req.params('maxLat'),
-    minLong = req.params('minLong'),
-    maxLong = req.params('maxLong');
-  if(helper.latsLongsAreValid(req.params)){
-    return winery.findAll(
+  console.log(req.query.maxLng);
+  var minLat = req.query.minLat,
+    maxLat = req.query.maxLat,
+    minLong = req.query.minLng,
+    maxLong = req.query.maxLng;
+  if(helper.latsLongsAreValid(req.query)){
+    return winery.findAll({
       where: {
         $and: {
           latitude: {$between: [minLat, maxLat]},
           longitude: {$between: [minLong, maxLong]}
         }
       },
-      include: [{model: models.wine}]
-    )
+    //  order: ['name', 'ASC'],
+      include: [{model: models.wine}],
+      offset: 0, limit: 10
+    })
     .then(
       function(wineries){
         return res.json(wineries)
@@ -70,6 +73,5 @@ exports.findWineriesIn = function(req, res, next) {
       function(err){              //error
         return res.send({'error' : err});
       })
-  )
   }
 }

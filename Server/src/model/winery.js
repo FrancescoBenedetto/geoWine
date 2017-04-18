@@ -4,34 +4,40 @@ module.exports = function(sequelize, DataTypes){
       type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      field: 'id'
     },
     name: {
       type: DataTypes.STRING(40),
-      allowNull: false
+      allowNull: false,
+      field: 'name'
     },
     nation: {
       type: DataTypes.STRING(40),
-      allowNull: false
-    },
-    nation_code: {
-      type: DataTypes.STRING(3),
-      allowNull: true
+      allowNull: false,
+      field: 'nation'
     },
     region: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: false,
+      field: 'region'
     },
-    district: {
-      type: DataTypes.STRING(40),
-      allowNull: true
+    latitude: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      field: 'latitude'
     },
-    municipality: {
+    longitude: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      field: 'longitude'
+    },
+    address: {
       type: DataTypes.STRING(40),
-      allowNull: true
+      allowNull: false,
+      field: 'address'
     }
-  },
-  {
+  }, {
     tableName: 'winery',
     classMethods: {
       associate: function(models) {
