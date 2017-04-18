@@ -1,4 +1,5 @@
 var models = require('../model/');
+var helper = require('winery-helper');
 var winery = models.winery;
 
 exports.checkParams = function(req, res, next, id) {
@@ -45,4 +46,30 @@ exports.delete = function(req, res, next) {
         return res.send('error deleting')
       }
     )
+}
+
+exports.findWineriesIn = function(req, res, next) {
+  var minLat = req.params('minLat'),
+    maxLat = req.params('maxLat'),
+    minLong = req.params('minLong'),
+    maxLong = req.params('maxLong');
+  if(helper.latsLongsAreValid(req.params)){
+    return winery.findAll(
+      where: {
+        $and: {
+          latitude: {$between: [minLat, maxLat]},
+          longitude: {$between: [minLong, maxLong]}
+        }
+      },
+      include: [{model: models.wine}]
+    )
+    .then(
+      function(wineries){
+        return res.json(wineries)
+      },
+      function(err){              //error
+        return res.send({'error' : err});
+      })
+  )
+  }
 }

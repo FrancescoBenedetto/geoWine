@@ -6,6 +6,7 @@ module.exports = function(express, app){
     //create new winery
     wineryRoute.post('/', winery.add);
 
+    // simple winery's Id Endpoints
     wineryRoute.route('/:id')
       // Get winery by Id
       .get(winery.findById)
@@ -14,5 +15,14 @@ module.exports = function(express, app){
       // Delete winery with given id
       .delete(winery.delete);
 
-      app.use('/winery', wineryRoute);
+    // search Endpoints
+    var search = '/search';
+
+    // Get all of a winery (also its wines) by lat and long
+    wineryRoute.route(search + '/wineriesIn')
+      .get(winery.findWineriesIn);
+
+
+
+    app.use('/winery', wineryRoute);
 }
