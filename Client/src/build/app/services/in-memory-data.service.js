@@ -1,0 +1,39 @@
+"use strict";
+var InMemoryDataService = (function () {
+    function InMemoryDataService() {
+    }
+    InMemoryDataService.prototype.createDb = function () {
+        var wineries = [
+            {
+                "id": 1,
+                "name": "Cantina",
+                "nation": "Italy",
+                "region": "Rome",
+                "latitude": 41.727715,
+                "longitude": 12.359806,
+                "address": "via Aldeno 19",
+                "wines": [
+                    { "id": 1, "name": "Barolo", "type": "red", "description": "descr", "winery_to_wine": { "winerys_wine_description": "detailed description", "wineId": 1, "wineryId": 1 } },
+                    { "id": 2, "name": "Amarone", "type": "red", "description": "desc2", "winery_to_wine": { "winerys_wine_description": "detail desc 2 ", "wineId": 2, "wineryId": 1 } }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "cantina1",
+                "nation": "Italy",
+                "region": "Rome",
+                "latitude": 41.884979,
+                "longitude": 12.501945,
+                "address": "via dell'Ambaradam",
+                "wines": [
+                    { "id": 1, "name": "Barolo", "type": "red", "description": "descr", "winery_to_wine": { "winerys_wine_description": "detailed description", "wineId": 1, "wineryId": 2 } },
+                    { "id": 3, "name": "Valpolicella", "type": "red", "description": "desc2", "winery_to_wine": { "winerys_wine_description": "detail desc 2 ", "wineId": 3, "wineryId": 2 } }
+                ]
+            }
+        ];
+        return { wineries: wineries };
+    };
+    return InMemoryDataService;
+}());
+exports.InMemoryDataService = InMemoryDataService;
+//# sourceMappingURL=in-memory-data.service.js.map

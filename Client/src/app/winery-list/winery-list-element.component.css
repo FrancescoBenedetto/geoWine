@@ -1,0 +1,41 @@
+div.winery-container {
+  margin-left: 0%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+}
+
+div.winery-data-container {
+  overflow: hidden;
+}
+
+div.winery-logo-container {
+  float: left;
+}
+
+div.winery-name-container {
+  float: left;
+}
+
+.winery-name {
+  color: #41433D;
+}
+
+
+div.wine-data-container {
+  overflow: hidden;
+}
+
+div.wine-left-side-container {
+  float: left;
+
+}
+
+.wine-name {
+  color: #492D44;
+}
+
+div.wine-right-side-container {
+  float: left;
+  width: 250px;
+  margin-left: 5%;
+}

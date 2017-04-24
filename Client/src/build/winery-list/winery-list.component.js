@@ -9,25 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var winery_service_1 = require("../services/winery-service");
 var WineryListComponent = (function () {
-    function WineryListComponent() {
+    function WineryListComponent(wineryService) {
+        this.wineryService = wineryService;
     }
     WineryListComponent.prototype.getWineries = function () {
-        return this.wineries;
+        var _this = this;
+        this.wineryService
+            .getWineries()
+            .then(function (wineries) { return _this.wineries = wineries; });
+    };
+    WineryListComponent.prototype.ngOnInit = function () {
+        this.getWineries();
     };
     return WineryListComponent;
 }());
-__decorate([
-    core_1.Input('wineries'),
-    __metadata("design:type", Array)
-], WineryListComponent.prototype, "wineries", void 0);
 WineryListComponent = __decorate([
     core_1.Component({
         selector: 'winery-list',
         templateUrl: './winery-list.component.html',
         styleUrls: ['./winery-list.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [winery_service_1.WineryService])
 ], WineryListComponent);
 exports.WineryListComponent = WineryListComponent;
 //# sourceMappingURL=winery-list.component.js.map

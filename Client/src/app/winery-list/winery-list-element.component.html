@@ -1,0 +1,25 @@
+<div class="winery-container">
+    <div class="winery-data-container">
+        <div class="winery-logo-container">
+            <img [src]="wineryLogo" width="70" height="70">
+        </div>
+        <div class="winery-name-container">
+            <h2 class="winery-name">{{winery.name}}</h2>
+        </div>
+    </div>
+    <div class="wine-data-container">
+        <div class="wine-left-side-container">
+            <div class="wine-img-container">
+                <img [src]="wineImgs[0]" width="200" height="200">
+            </div>
+            <div class="wine-name-container">
+                <h3 class="wine-name">{{winery.wines[0].name}}</h3>
+            </div>
+        </div>
+        <div class="wine-right-side-container">
+            <h5>
+              {{winery.wines[0].winery_to_wine.winerys_wine_description}}
+            </h5>
+        </div>
+    </div>
+</div>

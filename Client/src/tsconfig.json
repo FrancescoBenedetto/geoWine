@@ -2,8 +2,9 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "moduleResolution": "node",
+    "outDir": "build",
     "sourceMap": true,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
@@ -13,6 +14,10 @@
       "../node_modules/@types/"
     ]
   },
+  "filesGlob": [
+    "./app/**/*.ts",
+    "./app/**/*.tsx"
+  ],
   "compileOnSave": true,
   "exclude": [
     "node_modules/*",
