@@ -3,10 +3,10 @@
 <div>
     <div class="w-row">
         <div class="w-col w-col-8">
-            <winery-list></winery-list>
+            <winery-list #wineryList></winery-list>
         </div>
         <div class="w-col w-col-4">
-            <wineries-map></wineries-map>
+            <wineries-map [wineries]="wineryList.wineries"></wineries-map>
         </div>
     </div>
 </div>

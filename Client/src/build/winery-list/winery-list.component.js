@@ -18,7 +18,9 @@ var WineryListComponent = (function () {
         var _this = this;
         this.wineryService
             .getWineries()
-            .then(function (wineries) { return _this.wineries = wineries; });
+            .then(function (wineries) {
+            _this.wineries = wineries;
+        });
     };
     WineryListComponent.prototype.ngOnInit = function () {
         this.getWineries();

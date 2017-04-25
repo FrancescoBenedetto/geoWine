@@ -35,7 +35,7 @@ var InMemoryDataService = (function () {
                 "name": "Maccario Dringenberg",
                 "nation": "Italy",
                 "region": "Rome",
-                "latitude": 41.884979,
+                "latitude": 41.604979,
                 "longitude": 12.501949,
                 "address": "via dell'Ambaradam",
                 "wines": [

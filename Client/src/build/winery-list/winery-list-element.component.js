@@ -12,6 +12,8 @@ var core_1 = require("@angular/core");
 var winery_1 = require("../model/winery");
 var WineryListElementComponent = (function () {
     function WineryListElementComponent() {
+        this.mouseOvered = new core_1.EventEmitter();
+        this.mouseOut = new core_1.EventEmitter();
         this.imgsBasePath = 'src/assets/images/wineries/';
     }
     WineryListElementComponent.prototype.ngOnInit = function () {
@@ -20,12 +22,26 @@ var WineryListElementComponent = (function () {
         this.wineImgs = this.winery.wines
             .map(function (wine) { return thisImgsBasePath + wine.id + '.jpg'; });
     };
+    WineryListElementComponent.prototype.onMouseOver = function () {
+        this.mouseOvered.emit(this.winery.id);
+    };
+    WineryListElementComponent.prototype.onMouseOut = function () {
+        this.mouseOut.emit(this.winery.id);
+    };
     return WineryListElementComponent;
 }());
 __decorate([
     core_1.Input('winery'),
     __metadata("design:type", winery_1.Winery)
 ], WineryListElementComponent.prototype, "winery", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], WineryListElementComponent.prototype, "mouseOvered", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], WineryListElementComponent.prototype, "mouseOut", void 0);
 WineryListElementComponent = __decorate([
     core_1.Component({
         selector: 'winery-list-element',

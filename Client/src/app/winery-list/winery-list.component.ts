@@ -15,11 +15,15 @@ export class WineryListComponent implements OnInit {
   constructor(private wineryService: WineryService) {}
 
   // @Input('wineries') wineries: Winery[];
+  //@Output() wineriesChanged = new EventEmitter();
 
   getWineries(): void {
     this.wineryService
         .getWineries()
-        .then(wineries => this.wineries = wineries);
+        .then(wineries => {
+          this.wineries = wineries;
+          //this.wineriesChanged.emit(wineries);
+        });
   }
 
   ngOnInit(): void {

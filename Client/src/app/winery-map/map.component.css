@@ -1,5 +1,6 @@
 div.map-container {
   /*margin-left: 14%;*/
+  position: fixed;
 }
 
 .sebm-google-map-container {
