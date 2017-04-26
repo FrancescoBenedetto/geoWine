@@ -221,6 +221,12 @@ textarea.w-input, textarea.w-select {
 .w-col-12 {
     width: 100%;
 }
+.w-col-13 {
+	width: 30%;
+}
+.w-col-14 {
+	width: 70%;
+}
 .w-hidden-main {
     display: none !important;
 }
