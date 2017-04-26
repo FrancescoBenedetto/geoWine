@@ -1,5 +1,8 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Winery } from '../model/winery';
+import { WineryListItem } from './wineryListItem';
+import { WineListItem } from './wineListItem';
+
 
 @Component({
   selector: 'winery-list-element',
@@ -7,21 +10,15 @@ import { Winery } from '../model/winery';
   styleUrls: ['./winery-list-element.component.css']
 })
 
-export class WineryListElementComponent implements OnInit {
+export class WineryListElementComponent {
 
-  @Input('winery') winery: Winery;
   @Output() mouseOvered = new EventEmitter<number>();
   @Output() mouseOut = new EventEmitter<number>();
+  wineryListItem: WineryListItem;
 
-  imgsBasePath: string = 'src/assets/images/wineries/';
-  wineryLogo: string;
-  wineImgs: string[];
-
-  ngOnInit() {
-    let thisImgsBasePath: string = this.imgsBasePath + + this.winery.id+ '/';
-    this.wineryLogo = thisImgsBasePath + 'logo.jpg';
-    this.wineImgs = this.winery.wines
-      .map(wine => thisImgsBasePath + wine.id + '.jpg');
+  @Input()
+  set winery(winery: Winery) {
+    this.wineryListItem = new WineryListItem(winery);
   }
 
   onMouseOver() {

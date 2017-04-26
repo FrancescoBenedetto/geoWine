@@ -10,18 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var winery_1 = require("../model/winery");
+var wineryListItem_1 = require("./wineryListItem");
 var WineryListElementComponent = (function () {
     function WineryListElementComponent() {
         this.mouseOvered = new core_1.EventEmitter();
         this.mouseOut = new core_1.EventEmitter();
-        this.imgsBasePath = 'src/assets/images/wineries/';
     }
-    WineryListElementComponent.prototype.ngOnInit = function () {
-        var thisImgsBasePath = this.imgsBasePath + +this.winery.id + '/';
-        this.wineryLogo = thisImgsBasePath + 'logo.jpg';
-        this.wineImgs = this.winery.wines
-            .map(function (wine) { return thisImgsBasePath + wine.id + '.jpg'; });
-    };
+    Object.defineProperty(WineryListElementComponent.prototype, "winery", {
+        set: function (winery) {
+            this.wineryListItem = new wineryListItem_1.WineryListItem(winery);
+        },
+        enumerable: true,
+        configurable: true
+    });
     WineryListElementComponent.prototype.onMouseOver = function () {
         this.mouseOvered.emit(this.winery.id);
     };
@@ -31,10 +32,6 @@ var WineryListElementComponent = (function () {
     return WineryListElementComponent;
 }());
 __decorate([
-    core_1.Input('winery'),
-    __metadata("design:type", winery_1.Winery)
-], WineryListElementComponent.prototype, "winery", void 0);
-__decorate([
     core_1.Output(),
     __metadata("design:type", Object)
 ], WineryListElementComponent.prototype, "mouseOvered", void 0);
@@ -42,6 +39,11 @@ __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
 ], WineryListElementComponent.prototype, "mouseOut", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", winery_1.Winery),
+    __metadata("design:paramtypes", [winery_1.Winery])
+], WineryListElementComponent.prototype, "winery", null);
 WineryListElementComponent = __decorate([
     core_1.Component({
         selector: 'winery-list-element',
