@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Winery } from '../model/winery';
 import { WineryListItem } from './wineryListItem';
-import { WineListItem } from './wineListItem';
 
 
 @Component({
@@ -18,6 +17,7 @@ export class WineryListElementComponent {
 
   @Input()
   set winery(winery: Winery) {
+    if ( winery == null ) { return; }
     this.wineryListItem = new WineryListItem(winery);
   }
 

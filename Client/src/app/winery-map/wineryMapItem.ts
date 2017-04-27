@@ -1,29 +1,32 @@
 import { Winery } from '../model/winery';
-import { Wine } from '../model/wine';
 
+  const  baseImgUrl: string = 'src/assets/images/map/';
 
-export class WineryMapItem extends Winery{
+export class WineryMapItem {
 
-  icon:any;
+  id: number;
+  latitude: number;
+  longitude: number;
+  icon: any;
 
   constructor(
-    winery: Winery,
-    icon: any
-    )
-    {
-      super(
-      winery.id,
-      winery.name,
-      winery.nation,
-      winery.region,
-      winery.latitude,
-      winery.longitude,
-      winery.address,
-      winery.wines
-    );
+    winery: Winery
+    // icon: any
+  ) {
+    this.id = winery.id;
+    this.latitude = winery.latitude;
+    this.longitude = winery.longitude;
+    this.icon = {
+            url: baseImgUrl + 'wine_icon.svg',
+            scaledSize: {
+              height: 35,
+              width: 30
+            }
+          };
+  }
 
-    this.icon=icon;
-
-    }
+  highlight(): void {
+    this.icon = baseImgUrl + 'wine_icon_highlighted.png';
+  }
 
 }
