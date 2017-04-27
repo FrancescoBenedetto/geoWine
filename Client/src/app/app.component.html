@@ -3,10 +3,10 @@
 <div>
     <div class="w-row">
         <div class="w-col w-col-14">
-            <winery-list #wineryList></winery-list>
+            <winery-list #wineryList (mouseOveredWineryEvent)="wineryMap.highlight($event)" (mouseOutWineryEvent)="wineryMap.reset($event)"></winery-list>
         </div>
         <div class="w-col w-col-13">
-            <wineries-map [wineries]="wineryList.wineries"></wineries-map>
+            <wineries-map #wineryMap [wineries]="wineryList.wineries"></wineries-map>
         </div>
     </div>
 </div>

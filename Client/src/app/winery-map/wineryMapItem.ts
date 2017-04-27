@@ -1,6 +1,6 @@
 import { Winery } from '../model/winery';
 
-  const  baseImgUrl: string = 'src/assets/images/map/';
+  const  baseImgUrl = 'src/assets/images/map/';
 
 export class WineryMapItem {
 
@@ -26,7 +26,22 @@ export class WineryMapItem {
   }
 
   highlight(): void {
-    this.icon = baseImgUrl + 'wine_icon_highlighted.png';
+    this.icon = {
+            url: baseImgUrl + 'wine_icon_highlighted.png',
+            scaledSize: {
+              height: 35,
+              width: 30
+            }
+          };
   }
 
+  reset(): void {
+    this.icon = {
+            url: baseImgUrl + 'wine_icon.svg',
+            scaledSize: {
+              height: 35,
+              width: 30
+            }
+          };
+  }
 }

@@ -11,23 +11,34 @@ import { WineryService } from '../services/winery-service';
 export class WineryListComponent implements OnInit {
 
   wineries: Winery[];
+  @Output() mouseOveredWineryEvent = new EventEmitter<number>();
+  @Output() mouseOutWineryEvent = new EventEmitter<number>();
 
   constructor(private wineryService: WineryService) {}
 
   // @Input('wineries') wineries: Winery[];
-  //@Output() wineriesChanged = new EventEmitter();
 
   getWineries(): void {
     this.wineryService
         .getWineries()
         .then(wineries => {
           this.wineries = wineries;
-          //this.wineriesChanged.emit(wineries);
+          // this.wineriesChanged.emit(wineries);
         });
   }
 
   ngOnInit(): void {
     this.getWineries();
   }
+
+  mouseOverWinery(wineryId: number): void {
+    this.mouseOveredWineryEvent.emit(wineryId);
+  }
+
+  mouseOutWinery(wineryId: number): void {
+    this.mouseOutWineryEvent.emit(wineryId);
+  }
+
+
 
 }

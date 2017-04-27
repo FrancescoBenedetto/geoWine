@@ -11,7 +11,7 @@ import { WineryListItem } from './wineryListItem';
 
 export class WineryListElementComponent {
 
-  @Output() mouseOvered = new EventEmitter<number>();
+  @Output() mouseOver = new EventEmitter<number>();
   @Output() mouseOut = new EventEmitter<number>();
   wineryListItem: WineryListItem;
 
@@ -22,11 +22,11 @@ export class WineryListElementComponent {
   }
 
   onMouseOver() {
-    this.mouseOvered.emit(this.winery.id);
+    this.mouseOver.emit(this.wineryListItem.id);
   }
 
   onMouseOut() {
-    this.mouseOut.emit(this.winery.id);
+    this.mouseOut.emit(this.wineryListItem.id);
   }
 
 }

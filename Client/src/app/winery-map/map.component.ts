@@ -14,12 +14,21 @@ export class WineriesMapComponent {
 
   wineryMapItems: WineryMapItem[];
 
-  constructor() {}
+  constructor() { }
 
   @Input()
-  set wineries(wineries: Winery[]){
+  set wineries(wineries: Winery[]) {
     if (wineries == null) { return; }
-    this.wineryMapItems = wineries.map( winery => new WineryMapItem(winery));
+    this.wineryMapItems = wineries.map(winery => new WineryMapItem(winery));
   }
 
+  highlight(wineryId: number): void {
+    let indexOf: number = this.wineryMapItems.findIndex(wineryMapItem => wineryMapItem.id === wineryId);
+    this.wineryMapItems[indexOf].highlight();
+  }
+
+  reset(wineryId: number): void {
+    let indexOf: number = this.wineryMapItems.findIndex(wineryMapItem => wineryMapItem.id === wineryId);
+    this.wineryMapItems[indexOf].reset();
+  }
 }

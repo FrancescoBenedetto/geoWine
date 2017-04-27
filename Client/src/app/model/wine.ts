@@ -1,6 +1,6 @@
 import { Winery } from './winery';
 
-export class Wine {
+export interface Wine {
   id: number;
   name: string;
   description: string;
