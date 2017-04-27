@@ -1,7 +1,4 @@
 import { Wine } from '../model/wine';
-import { WineryListItem } from './wineryListItem';
-
-
 
 export class WineListItem {
 
@@ -20,6 +17,6 @@ export class WineListItem {
       this.name = wine.name;
       this.description = wine.description;
       this.type = wine.type;
-      this.image=image;
+      this.image = image;
     }
 }
