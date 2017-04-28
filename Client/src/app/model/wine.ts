@@ -5,5 +5,6 @@ export interface Wine {
   name: string;
   description: string;
   type: string;
+  image?: string;
   wineries: Winery[];
 }

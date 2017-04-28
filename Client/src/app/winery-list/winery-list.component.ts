@@ -10,7 +10,7 @@ import { WineryService } from '../services/winery-service';
 
 export class WineryListComponent implements OnInit {
 
-  wineries: Winery[];
+  wineries: Winery[] = [];
   @Output() mouseOveredWineryEvent = new EventEmitter<number>();
   @Output() mouseOutWineryEvent = new EventEmitter<number>();
 

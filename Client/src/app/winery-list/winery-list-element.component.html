@@ -1,24 +1,24 @@
 <div (mouseenter)="onMouseOver()" (mouseleave)="onMouseOut()" class="winery-container">
     <div class="winery-data-container">
         <div class="winery-logo-container">
-            <img [src]="wineryListItem.image" width="70" height="70">
+            <img [src]="_winery.image" width="70" height="70">
         </div>
         <div class="winery-name-container">
-            <h2 class="winery-name">{{wineryListItem.name}}</h2>
+            <h2 class="winery-name">{{_winery.name}}</h2>
         </div>
     </div>
     <div class="wine-data-container">
         <div class="wine-left-side-container">
             <div class="wine-img-container">
-                <img [src]="wineryListItem.wines[0].image" width="200" height="200">
+                <img [src]="_winery.wines[0].image" width="200" height="200">
             </div>
             <div class="wine-name-container">
-                <h3 class="wine-name">{{wineryListItem.wines[0].name}}</h3>
+                <h3 class="wine-name">{{_winery.wines[0].name}}</h3>
             </div>
         </div>
         <div class="wine-right-side-container">
             <h5>
-              {{wineryListItem.wines[0].description}}
+              {{_winery.wines[0].description}}
             </h5>
         </div>
     </div>

@@ -8,5 +8,6 @@ export interface Winery {
   latitude: number;
   longitude: number;
   address: string;
+  image?: string;
   wines: Wine[];
 }
