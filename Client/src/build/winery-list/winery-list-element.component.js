@@ -9,40 +9,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var winery_1 = require("../model/winery");
-var wineryListItem_1 = require("./wineryListItem");
 var WineryListElementComponent = (function () {
     function WineryListElementComponent() {
-        this.mouseOvered = new core_1.EventEmitter();
+        this.mouseOver = new core_1.EventEmitter();
         this.mouseOut = new core_1.EventEmitter();
+        this.baseImgsPath = 'src/assets/images/wineries/';
     }
     Object.defineProperty(WineryListElementComponent.prototype, "winery", {
         set: function (winery) {
-            this.wineryListItem = new wineryListItem_1.WineryListItem(winery);
+            var _this = this;
+            if (winery == null) {
+                return;
+            }
+            this._winery = winery;
+            this._winery.image = this.baseImgsPath + '/' + this._winery.id + '/logo.jpg';
+            this._winery.wines.map(function (wine) { return wine.image = _this.baseImgsPath + _this._winery.id + '/' + wine.id + '.jpg'; });
         },
         enumerable: true,
         configurable: true
     });
     WineryListElementComponent.prototype.onMouseOver = function () {
-        this.mouseOvered.emit(this.winery.id);
+        this.mouseOver.emit(this._winery.id);
     };
     WineryListElementComponent.prototype.onMouseOut = function () {
-        this.mouseOut.emit(this.winery.id);
+        this.mouseOut.emit(this._winery.id);
     };
     return WineryListElementComponent;
 }());
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
-], WineryListElementComponent.prototype, "mouseOvered", void 0);
+], WineryListElementComponent.prototype, "mouseOver", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
 ], WineryListElementComponent.prototype, "mouseOut", void 0);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", winery_1.Winery),
-    __metadata("design:paramtypes", [winery_1.Winery])
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
 ], WineryListElementComponent.prototype, "winery", null);
 WineryListElementComponent = __decorate([
     core_1.Component({

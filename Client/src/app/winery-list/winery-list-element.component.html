@@ -1,25 +1,40 @@
 <div (mouseenter)="onMouseOver()" (mouseleave)="onMouseOut()" class="winery-container">
     <div class="winery-data-container">
         <div class="winery-logo-container">
-            <img [src]="_winery.image" width="70" height="70">
+            <img class="winery-image" [src]="_winery.image" width="70" height="70">
         </div>
         <div class="winery-name-container">
             <h2 class="winery-name">{{_winery.name}}</h2>
         </div>
     </div>
     <div class="wine-data-container">
-        <div class="wine-left-side-container">
-            <div class="wine-img-container">
-                <img [src]="_winery.wines[0].image" width="200" height="200">
-            </div>
-            <div class="wine-name-container">
-                <h3 class="wine-name">{{_winery.wines[0].name}}</h3>
+        <!--  <div class="wine-left-side-container"> -->
+        <div class="wine-img-container">
+
+            <div [id]="_winery.id" class="carousel slide" data-interval="false">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+
+                    <div class="item" [class.active]="i==0" *ngFor="let wine of _winery.wines; let i = index">
+                        <img class="wine-img" [src]="wine.image" width="200" height="200">
+                    </div>
+
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" [href]="'#' + _winery.id" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" [href]="'#' + _winery.id" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
-        <div class="wine-right-side-container">
-            <h5>
-              {{_winery.wines[0].description}}
-            </h5>
+        <div class="wine-name-container">
+            <h3 class="wine-name">{{_winery.wines[0].name}}</h3>
         </div>
     </div>
 </div>

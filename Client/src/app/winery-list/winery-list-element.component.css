@@ -1,7 +1,12 @@
 div.winery-container {
-  margin-left: 0%;
   margin-bottom: 2%;
-  margin-left: 5%;
+  margin-left: 2%;
+  float:left;
+}
+
+img.winery-image {
+  max-width: 70;
+  max-height: 70;
 }
 
 div.winery-data-container {
@@ -23,11 +28,37 @@ div.winery-name-container {
 
 div.wine-data-container {
   overflow: hidden;
+
+}
+
+div.wine-img-container {
+  margin-left: 25%;
+  width: 200px;
+  height: 200px;
+
+}
+
+.carousel-control {
+  top: 100px;
+  bottom: 100px;
+  width: 5%;
+}
+
+.glyphicon {
+  color: #D5CFD3;
+}
+
+img.wine-img {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+div.wine-name-container {
+  margin-left: 20%;
 }
 
 div.wine-left-side-container {
   float: left;
-
 }
 
 .wine-name {
