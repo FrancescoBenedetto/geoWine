@@ -25,23 +25,12 @@ div.winery-name-container {
   color: #41433D;
 }
 
-
 div.wine-data-container {
   overflow: hidden;
-
-}
-
-div.wine-img-container {
   margin-left: 25%;
   width: 200px;
-  height: 200px;
+  height: 250px;
 
-}
-
-.carousel-control {
-  top: 100px;
-  bottom: 100px;
-  width: 5%;
 }
 
 .glyphicon {
@@ -53,12 +42,18 @@ img.wine-img {
   max-width: 200px;
 }
 
-div.wine-name-container {
-  margin-left: 20%;
+.carousel-caption {
+    position: relative;
+    left: auto;
+    right: auto;
 }
 
-div.wine-left-side-container {
-  float: left;
+.carousel-control {
+  top: 100px;
+  bottom: 200px;
+  width: 5%;
+  background-image:none !important;
+  filter:none !important;
 }
 
 .wine-name {
