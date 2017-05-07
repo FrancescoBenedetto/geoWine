@@ -1,5 +1,5 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Winery } from '../model/winery';
 
@@ -7,16 +7,40 @@ import { Winery } from '../model/winery';
 export class WineryService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private wineriesUrl = 'api/wineries';  // URL to web api
+  private wineriesUrl = ''; //'api/wineries';  // URL to web api
+  private baseUrl = 'http://localhost:3000/';
 
   constructor(private http: Http) { }
 
+  getTopTenWineries(): Promise<Winery[]> {
+    let topTenWineriesUrl = 'winery/search/getTopTenWineries';
+    return this.http.get(this.baseUrl + topTenWineriesUrl) //
+               .toPromise()
+               .then(response => response.json() as Winery[])
+               .catch(console.log);
+             }
+
+  getWineriesIn(latLngBounds): Promise<Winery[]> {
+    let wineriesInUrl = 'winery/search/getWineriesIn';
+    let params = new URLSearchParams();
+    params.set('minLat', latLngBounds.getSouthWest().lat());
+    params.set('maxLat', latLngBounds.getNorthEast().lat());
+    params.set('minLng', latLngBounds.getSouthWest().lng());
+    params.set('maxLng', latLngBounds.getNorthEast().lng())
+    return this.http.get(this.baseUrl + wineriesInUrl, {search: params})
+      .toPromise()
+      .then(response => response.json() as Winery[])
+      .catch(console.log);
+  }
+
+/*
   getWineries(): Promise<Winery[]> {
     return this.http.get(this.wineriesUrl)
                .toPromise()
                .then(response => response.json().data as Winery[])
                .catch(this.handleError);
   }
+
 
   getWinery(id: number): Promise<Winery> {
     const url = `${this.wineriesUrl}/${id}`;
@@ -55,5 +79,5 @@ export class WineryService {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
-
+*/
 }

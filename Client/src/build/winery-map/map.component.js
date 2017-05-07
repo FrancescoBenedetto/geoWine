@@ -12,29 +12,38 @@ var core_1 = require("@angular/core");
 var wineryMapItem_1 = require("./wineryMapItem");
 var WineriesMapComponent = (function () {
     function WineriesMapComponent() {
-        this.baseImgUrl = 'src/assets/images/map/';
+        this.idle = new core_1.EventEmitter();
     }
     Object.defineProperty(WineriesMapComponent.prototype, "wineries", {
         set: function (wineries) {
             if (wineries == null) {
                 return;
             }
-            this.wineryMapItems = wineries.map(function (winery) {
-                var icon = {
-                    url: 'src/assets/images/map/wine_icon.svg',
-                    scaledSize: {
-                        height: 35,
-                        width: 30
-                    }
-                };
-                return new wineryMapItem_1.WineryMapItem(winery, icon);
-            });
+            this.wineryMapItems = wineries.map(function (winery) { return new wineryMapItem_1.WineryMapItem(winery); });
         },
         enumerable: true,
         configurable: true
     });
+    WineriesMapComponent.prototype.highlight = function (wineryId) {
+        var indexOf = this.wineryMapItems.findIndex(function (wineryMapItem) { return wineryMapItem.id === wineryId; });
+        this.wineryMapItems[indexOf].highlight();
+    };
+    WineriesMapComponent.prototype.reset = function (wineryId) {
+        var indexOf = this.wineryMapItems.findIndex(function (wineryMapItem) { return wineryMapItem.id === wineryId; });
+        this.wineryMapItems[indexOf].reset();
+    };
+    WineriesMapComponent.prototype.updateBounds = function (bounds) {
+        this.latLngBounds = bounds;
+    };
+    WineriesMapComponent.prototype.onIdle = function () {
+        this.idle.emit(this.latLngBounds);
+    };
     return WineriesMapComponent;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], WineriesMapComponent.prototype, "idle", void 0);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Array),

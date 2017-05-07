@@ -33,6 +33,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
+    "@types/googlemaps": "^3.26.11",
     "@types/jasmine": "2.5.36",
     "@types/node": "^6.0.45",
     "angular2-template-loader": "^0.6.0",

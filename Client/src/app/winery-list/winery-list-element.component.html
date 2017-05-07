@@ -1,10 +1,10 @@
-<div (mouseenter)="onMouseOver()" (mouseleave)="onMouseOut()" class="winery-container">
+<div (mouseenter)="onMouseOver()" (mouseleave)="onMouseOut()" class="w-col w-col-6">
     <div class="winery-data-container">
         <div class="winery-logo-container">
             <img class="winery-image" [src]="_winery.image" width="70" height="70">
         </div>
         <div class="winery-name-container">
-            <h2 class="winery-name">{{_winery.name}}</h2>
+            <h3 class="winery-name">{{_winery.name}}</h3>
         </div>
     </div>
     <div class="wine-data-container">
@@ -17,7 +17,7 @@
                 <div class="item" [class.active]="i==0" *ngFor="let wine of _winery.wines; let i = index">
                     <img class="wine-img" [src]="wine.image" width="200" height="200">
                     <div class="carousel-caption">
-                        <h3 class="wine-name">{{wine.name}}</h3>
+                        <h4 class="wine-name">{{wine.name}}</h4>
                         <!--    <p>LA is always so much fun!</p> -->
                     </div>
                 </div>

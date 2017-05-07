@@ -1,6 +1,6 @@
 <div>
-    <div class="dynamic-list-wrapper w-dyn-list">
-        <div class="w-dyn-items wineries-container">
+    <div class="winery-list">
+        <div class="w-row">
             <winery-list-element (mouseOver)="mouseOverWinery($event)" (mouseOut)="mouseOutWinery($event)" *ngFor="let winery of wineries" [winery]="winery">
             </winery-list-element>
         </div>

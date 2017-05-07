@@ -49,7 +49,6 @@ exports.delete = function(req, res, next) {
 }
 
 exports.findWineriesIn = function(req, res, next) {
-  console.log(req.query.maxLng);
   var minLat = req.query.minLat,
     maxLat = req.query.maxLat,
     minLong = req.query.minLng,
@@ -74,4 +73,17 @@ exports.findWineriesIn = function(req, res, next) {
         return res.send({'error' : err});
       })
   }
+}
+
+exports.findTopTenWineries = function(req, res, next) {
+  return winery.findAll({
+    include: [{model: models.wine}],
+    offset: 0,
+    limit: 10
+  })
+  .then(
+    function(wineries) {
+      return res.json(wineries);
+    }
+  )
 }

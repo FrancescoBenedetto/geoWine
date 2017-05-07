@@ -1,6 +1,6 @@
 <div class="map-container">
-    <sebm-google-map [latitude]="41.727715" [longitude]="12.359806">
-        <sebm-google-map-marker [iconUrl]="item.icon" *ngFor="let item of wineryMapItems"  [latitude]="item.latitude" [longitude]="item.longitude">
+    <sebm-google-map (idle)="onIdle()" (boundsChange)="updateBounds($event)" [latitude]="41.727715" [longitude]="12.359806" [zoom]="6">
+        <sebm-google-map-marker [iconUrl]="item.icon" *ngFor="let item of wineryMapItems" [latitude]="item.latitude" [longitude]="item.longitude">
         </sebm-google-map-marker>
     </sebm-google-map>
 </div>

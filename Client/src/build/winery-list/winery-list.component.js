@@ -13,11 +13,14 @@ var winery_service_1 = require("../services/winery-service");
 var WineryListComponent = (function () {
     function WineryListComponent(wineryService) {
         this.wineryService = wineryService;
+        this.wineries = [];
+        this.mouseOveredWineryEvent = new core_1.EventEmitter();
+        this.mouseOutWineryEvent = new core_1.EventEmitter();
     }
     WineryListComponent.prototype.getWineries = function () {
         var _this = this;
         this.wineryService
-            .getWineries()
+            .getTopTenWineries()
             .then(function (wineries) {
             _this.wineries = wineries;
         });
@@ -25,8 +28,28 @@ var WineryListComponent = (function () {
     WineryListComponent.prototype.ngOnInit = function () {
         this.getWineries();
     };
+    WineryListComponent.prototype.mouseOverWinery = function (wineryId) {
+        this.mouseOveredWineryEvent.emit(wineryId);
+    };
+    WineryListComponent.prototype.mouseOutWinery = function (wineryId) {
+        this.mouseOutWineryEvent.emit(wineryId);
+    };
+    WineryListComponent.prototype.mapIdle = function (latLngBounds) {
+        var _this = this;
+        this.wineryService
+            .getWineriesIn(latLngBounds)
+            .then(function (wineries) { return _this.wineries = wineries; });
+    };
     return WineryListComponent;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], WineryListComponent.prototype, "mouseOveredWineryEvent", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], WineryListComponent.prototype, "mouseOutWineryEvent", void 0);
 WineryListComponent = __decorate([
     core_1.Component({
         selector: 'winery-list',

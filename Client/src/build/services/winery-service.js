@@ -15,46 +15,27 @@ var WineryService = (function () {
     function WineryService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.wineriesUrl = 'api/wineries';
+        this.wineriesUrl = '';
+        this.baseUrl = 'http://localhost:3000/';
     }
-    WineryService.prototype.getWineries = function () {
-        return this.http.get(this.wineriesUrl)
+    WineryService.prototype.getTopTenWineries = function () {
+        var topTenWineriesUrl = 'winery/search/getTopTenWineries';
+        return this.http.get(this.baseUrl + topTenWineriesUrl)
             .toPromise()
-            .then(function (response) { return response.json().data; })
-            .catch(this.handleError);
+            .then(function (response) { return response.json(); })
+            .catch(console.log);
     };
-    WineryService.prototype.getWinery = function (id) {
-        var url = this.wineriesUrl + "/" + id;
-        return this.http.get(url)
+    WineryService.prototype.getWineriesIn = function (latLngBounds) {
+        var wineriesInUrl = 'winery/search/getWineriesIn';
+        var params = new http_1.URLSearchParams();
+        params.set('minLat', latLngBounds.getSouthWest().lat());
+        params.set('maxLat', latLngBounds.getNorthEast().lat());
+        params.set('minLng', latLngBounds.getSouthWest().lng());
+        params.set('maxLng', latLngBounds.getNorthEast().lng());
+        return this.http.get(this.baseUrl + wineriesInUrl, { search: params })
             .toPromise()
-            .then(function (response) { return response.json().data; })
-            .catch(this.handleError);
-    };
-    WineryService.prototype.delete = function (id) {
-        var url = this.wineriesUrl + "/" + id;
-        return this.http.delete(url, { headers: this.headers })
-            .toPromise()
-            .then(function () { return null; })
-            .catch(this.handleError);
-    };
-    WineryService.prototype.create = function (name) {
-        return this.http
-            .post(this.wineriesUrl, JSON.stringify({ name: name }), { headers: this.headers })
-            .toPromise()
-            .then(function (res) { return res.json().data; })
-            .catch(this.handleError);
-    };
-    WineryService.prototype.update = function (winery) {
-        var url = this.wineriesUrl + "/" + winery.id;
-        return this.http
-            .put(url, JSON.stringify(winery), { headers: this.headers })
-            .toPromise()
-            .then(function () { return winery; })
-            .catch(this.handleError);
-    };
-    WineryService.prototype.handleError = function (error) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+            .then(function (response) { return response.json(); })
+            .catch(console.log);
     };
     return WineryService;
 }());

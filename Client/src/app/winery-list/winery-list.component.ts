@@ -20,7 +20,7 @@ export class WineryListComponent implements OnInit {
 
   getWineries(): void {
     this.wineryService
-        .getWineries()
+        .getTopTenWineries()
         .then(wineries => {
           this.wineries = wineries;
           // this.wineriesChanged.emit(wineries);
@@ -37,6 +37,12 @@ export class WineryListComponent implements OnInit {
 
   mouseOutWinery(wineryId: number): void {
     this.mouseOutWineryEvent.emit(wineryId);
+  }
+
+  mapIdle(latLngBounds: any){
+    this.wineryService
+      .getWineriesIn(latLngBounds)
+      .then(wineries => this.wineries = wineries);
   }
 
 

@@ -19,8 +19,12 @@ module.exports = function(express, app){
     var search = '/search';
 
     // Get all of a winery (also its wines) by lat and long
-    wineryRoute.route(search + '/wineriesIn')
+    wineryRoute.route(search + '/getWineriesIn')
       .get(winery.findWineriesIn);
+
+    //get top 10 wineries
+    wineryRoute.route(search + '/getTopTenWineries')
+      .get(winery.findTopTenWineries);
 
 
 

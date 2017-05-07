@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { WineriesMapComponent }  from './winery-map/map.component';
 import { WineryListComponent }  from './winery-list/winery-list.component';
 import { WineryListElementComponent }  from './winery-list/winery-list-element.component';
+import { WinerySearchComponent } from './winery-search/search.component'
 
 
 
@@ -18,14 +19,15 @@ import { WineryListElementComponent }  from './winery-list/winery-list-element.c
   imports: [
     BrowserModule,
     HttpModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyBhYrSrv8bUiBUMWDI4TlSTXmg51yYEU-I'}),
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBhYrSrv8bUiBUMWDI4TlSTXmg51yYEU-I', libraries: ['places']})
+    //InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   declarations: [
     AppComponent,
     WineriesMapComponent,
     WineryListComponent,
-    WineryListElementComponent
+    WineryListElementComponent,
+    WinerySearchComponent
   ],
   providers: [ WineryService ],
   bootstrap: [ AppComponent ]

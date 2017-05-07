@@ -1,10 +1,10 @@
 div.map-container {
   /*margin-left: 14%;*/
   position: fixed;
+  margin-top: 10%;
 }
 
 .sebm-google-map-container {
-  height: 86vh;
-  width: 29vw;
+  height: 80vh;
+  width: 34vw;
 }
-

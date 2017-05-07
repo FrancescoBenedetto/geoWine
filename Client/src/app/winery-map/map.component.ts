@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Winery } from '../model/winery';
 import { WineryMapItem } from './wineryMapItem';
+import { LatLngBounds } from 'angular2-google-maps/core';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { WineryMapItem } from './wineryMapItem';
 export class WineriesMapComponent {
 
   wineryMapItems: WineryMapItem[];
+  latLngBounds: LatLngBounds;
+  @Output() idle = new EventEmitter<LatLngBounds>();
 
   constructor() { }
 
@@ -30,5 +33,13 @@ export class WineriesMapComponent {
   reset(wineryId: number): void {
     let indexOf: number = this.wineryMapItems.findIndex(wineryMapItem => wineryMapItem.id === wineryId);
     this.wineryMapItems[indexOf].reset();
+  }
+
+  updateBounds(bounds: LatLngBounds) {
+    this.latLngBounds = bounds;
+  }
+
+  onIdle() {
+    this.idle.emit(this.latLngBounds);
   }
 }
