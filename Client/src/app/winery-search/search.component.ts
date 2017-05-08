@@ -1,7 +1,6 @@
-import { Component, NgModule, NgZone, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
-import { BrowserModule } from "@angular/platform-browser";
-import { AgmCoreModule, MapsAPILoader, LatLng } from 'angular2-google-maps/core';
-import {Observable} from 'rxjs/Observable';
+import { Component, NgZone, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
+import { MapsAPILoader } from 'angular2-google-maps/core';
+import { LatLng } from '../model/latlng';
 
 
 
@@ -41,9 +40,8 @@ export class WinerySearchComponent implements OnInit {
           }
 
           //set latitude, longitude and zoom
-          //let latLng: LatLng = new LatLng(place.geometry.location.lat(), place.geometry.location.lng());
-          //this.placeChanged.emit(latLng);
-          //this.zoom = 12;
+          let latLng: LatLng = new LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+          this.placeChanged.emit(latLng);
         });
       });
     });
