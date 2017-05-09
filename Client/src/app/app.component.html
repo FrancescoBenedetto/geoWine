@@ -1,5 +1,5 @@
 <div class="heading">
-    <winery-search></winery-search>
+    <winery-search #winerySearch (placeChanged)="wineryMap.updateCenter($event)"></winery-search>
 </div>
 <div>
     <div class="w-row content-container">

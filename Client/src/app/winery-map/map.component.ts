@@ -16,6 +16,7 @@ export class WineriesMapComponent {
   wineryMapItems: WineryMapItem[];
   latLngBounds: LatLngBounds;
   @Output() idle = new EventEmitter<LatLngBounds>();
+  latitude: number = 41.727715; longitude: number = 12.359806; zoom: number = 6;
 
   constructor() { }
 
@@ -42,4 +43,11 @@ export class WineriesMapComponent {
   onIdle() {
     this.idle.emit(this.latLngBounds);
   }
+  
+  updateCenter(latlng: any) {
+    this.latitude = latlng.getLat();
+    this.longitude = latlng.getLng();
+    this.idle.emit(this.latLngBounds);
+  }
+  
 }

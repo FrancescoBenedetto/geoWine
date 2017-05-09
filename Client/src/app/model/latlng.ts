@@ -1,6 +1,4 @@
-import { LatLng } from 'angular2-google-maps/core';
-
-export class MyLatLng implements LatLng {
+export class LatLng {
 
   public lat: number;
   public lng: number;
@@ -8,6 +6,14 @@ export class MyLatLng implements LatLng {
   constructor(lat: number, lng: number) {
     this.lat = lat;
     this.lng= lng;
+  }
+  
+  getLat() {
+    return this.lat;
+  }
+  
+  getLng() {
+    return this.lng;
   }
 
 }
