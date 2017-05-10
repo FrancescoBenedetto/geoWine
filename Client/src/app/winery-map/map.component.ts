@@ -43,11 +43,11 @@ export class WineriesMapComponent {
   onIdle() {
     this.idle.emit(this.latLngBounds);
   }
-  
+
   updateCenter(latlng: any) {
     this.latitude = latlng.getLat();
     this.longitude = latlng.getLng();
-    this.idle.emit(this.latLngBounds);
+    //this.idle.emit(this.latLngBounds);
   }
-  
+
 }

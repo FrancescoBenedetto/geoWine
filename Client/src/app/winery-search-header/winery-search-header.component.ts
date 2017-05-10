@@ -5,13 +5,13 @@ import { LatLng } from '../model/latlng';
 
 
 @Component({
-  selector: 'winery-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'winery-search-header',
+  templateUrl: './winery-search-header.component.html',
+  styleUrls: ['./winery-search-header.component.css']
 })
 
 
-export class WinerySearchComponent implements OnInit {
+export class WinerySearchHeaderComponent implements OnInit {
 
   @Output() placeChanged = new EventEmitter<LatLng>();
   @ViewChild("search")

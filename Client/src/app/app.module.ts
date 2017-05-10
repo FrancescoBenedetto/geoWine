@@ -11,7 +11,9 @@ import { AppComponent } from './app.component';
 import { WineriesMapComponent }  from './winery-map/map.component';
 import { WineryListComponent }  from './winery-list/winery-list.component';
 import { WineryListElementComponent }  from './winery-list/winery-list-element.component';
-import { WinerySearchComponent } from './winery-search/search.component'
+import { WinerySearchHeaderComponent } from './winery-search-header/winery-search-header.component';
+import { WinerySearchBodyComponent } from './winery-search-body/winery-search-body.component';
+
 
 
 
@@ -27,7 +29,8 @@ import { WinerySearchComponent } from './winery-search/search.component'
     WineriesMapComponent,
     WineryListComponent,
     WineryListElementComponent,
-    WinerySearchComponent
+    WinerySearchHeaderComponent,
+    WinerySearchBodyComponent
   ],
   providers: [ WineryService ],
   bootstrap: [ AppComponent ]

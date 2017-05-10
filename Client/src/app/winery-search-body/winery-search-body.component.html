@@ -1,0 +1,10 @@
+<div>
+    <div class="w-row content-container">
+        <div class="w-col w-col-15">
+            <winery-list #wineryList (mouseOveredWineryEvent)="wineryMap.highlight($event)" (mouseOutWineryEvent)="wineryMap.reset($event)"></winery-list>
+        </div>
+        <div class="w-col w-col-16">
+            <wineries-map (idle)="wineryList.mapIdle($event)" #wineryMap [wineries]="wineryList.wineries"></wineries-map>
+        </div>
+    </div>
+</div>

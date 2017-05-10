@@ -13,6 +13,9 @@ var wineryMapItem_1 = require("./wineryMapItem");
 var WineriesMapComponent = (function () {
     function WineriesMapComponent() {
         this.idle = new core_1.EventEmitter();
+        this.latitude = 41.727715;
+        this.longitude = 12.359806;
+        this.zoom = 6;
     }
     Object.defineProperty(WineriesMapComponent.prototype, "wineries", {
         set: function (wineries) {
@@ -37,6 +40,10 @@ var WineriesMapComponent = (function () {
     };
     WineriesMapComponent.prototype.onIdle = function () {
         this.idle.emit(this.latLngBounds);
+    };
+    WineriesMapComponent.prototype.updateCenter = function (latlng) {
+        this.latitude = latlng.getLat();
+        this.longitude = latlng.getLng();
     };
     return WineriesMapComponent;
 }());
