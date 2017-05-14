@@ -10,6 +10,8 @@ import { Component, EventEmitter, Input, Output, NgZone } from '@angular/core';
 
 export class HeaderElementComponent {
 
+  @Input('home') home: boolean = true;
+
   constructor(ngZone: NgZone) {}
 
 }

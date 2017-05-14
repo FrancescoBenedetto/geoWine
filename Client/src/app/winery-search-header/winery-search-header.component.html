@@ -3,11 +3,11 @@
         <form>
             <div class="input-group search-input-text first-input">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input #search (click)="triggerAButtonClickedEvent()" id="where" type="text" class="form-control" [class.whitish-style]="home" name="where" placeholder="Dove">
+                <input #search (click)="triggerAButtonClickedEvent()" id="where" type="text" class="form-control" [class.whitish-style]="home" [class.blackish-style]="!home" name="where" placeholder="Dove">
             </div>
             <div class="input-group search-input-text">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-glass"></i></span>
-                <input (click)="triggerAButtonClickedEvent()" id="type" type="text" class="form-control" [class.whitish-style]="home" name="type" placeholder="Sia rossi che bianchi">
+                <input (click)="triggerAButtonClickedEvent()" id="type" type="text" class="form-control" [class.whitish-style]="home" [class.blackish-style]="!home" name="type" placeholder="Sia rossi che bianchi">
             </div>
         </form>
     </div>

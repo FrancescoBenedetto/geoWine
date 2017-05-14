@@ -20,7 +20,7 @@
 }
 
 .search-input-text {
-  margin-top: 2.5%;
+  margin-top: 0.5%;
   width: 20%;
   float: left;
 }
@@ -32,10 +32,7 @@
   font-size: 20px;
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    white;
-}
-
-input[placeholder] {
-  color: white;
+.blackish-style {
+  height: 45px;
+  font-size: 15px;
 }
