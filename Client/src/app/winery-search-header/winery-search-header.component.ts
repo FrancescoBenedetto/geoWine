@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
+import { Component, NgZone, OnInit, Output, ViewChild, EventEmitter, ElementRef, Input } from '@angular/core';
 import { MapsAPILoader } from 'angular2-google-maps/core';
 import { LatLng } from '../model/latlng';
 
@@ -14,6 +14,9 @@ import { LatLng } from '../model/latlng';
 export class WinerySearchHeaderComponent implements OnInit {
 
   @Output() placeChanged = new EventEmitter<LatLng>();
+  @Output() aButtonClicked = new EventEmitter<void>();
+  @Input('home') home: boolean = true;
+
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
@@ -21,6 +24,11 @@ export class WinerySearchHeaderComponent implements OnInit {
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
   ) {}
+
+
+  triggerAButtonClickedEvent() {
+    this.aButtonClicked.emit();
+  }
 
 //ADD DEBOUNCER AND DISTINCT
   ngOnInit() {
@@ -46,5 +54,7 @@ export class WinerySearchHeaderComponent implements OnInit {
       });
     });
   }
+
+
 
 }

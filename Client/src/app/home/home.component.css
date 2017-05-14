@@ -1,0 +1,7 @@
+.center {
+  position: fixed;
+  background-image: url("/src/assets/images/home/home-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
