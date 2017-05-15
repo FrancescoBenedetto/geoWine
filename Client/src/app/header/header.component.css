@@ -24,11 +24,12 @@ div.logo-container {
 ul {
   list-style-type:none;
   margin-left: 70%;
+  margin-top: 0.5%;
 }
 
 ul.home {
   margin-left:60%;
-
+  margin-top: 0%;
 }
 
 li {
