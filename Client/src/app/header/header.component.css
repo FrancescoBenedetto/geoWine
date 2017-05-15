@@ -1,19 +1,42 @@
 .header {
-  height: 10%;
+  height: 30%;
   width: 100%;
-  z-index: 10;
-  position: fixed;
+}
+
+div.home {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 1, 0));
+  position: fixed;
+  z-index: 10;
+  height: 10%;
+
+}
+
+div.logo-container {
+  margin-left: 0.5%;
+}
+
+.logo-img {
+  margin-top: 1%;
+  margin-left: 1%;
+  float: left;
 }
 
 ul {
   list-style-type:none;
+  margin-left: 70%;
+}
+
+ul.home {
   margin-left:60%;
+
 }
 
 li {
   display:table-cell;
   padding:10px;
+}
+
+li.home {
   color: white;
   font-size: 20px;
   border-color: white;

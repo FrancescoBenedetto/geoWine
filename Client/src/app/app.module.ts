@@ -14,6 +14,8 @@ import { WineryListElementComponent }  from './winery-list/winery-list-element.c
 import { WinerySearchComponent } from './winery-search/winery-search.component';
 
 import { WinerySearchHeaderComponent } from './winery-search-header/winery-search-header.component';
+import { WinerySearchHomeComponent } from './winery-search-header/winery-search-home.component';
+
 import { WinerySearchBodyComponent } from './winery-search-body/winery-search-body.component';
 import { HomeElementComponent } from './home/home.component';
 import { HeaderElementComponent } from './header/header.component';
@@ -42,7 +44,8 @@ import { AppRoutingModule }     from './app-routing.module';
     WineryListElementComponent,
     WinerySearchHeaderComponent,
     WinerySearchBodyComponent,
-    WinerySearchComponent
+    WinerySearchComponent,
+    WinerySearchHomeComponent
   ],
   providers: [ WineryService ],
   bootstrap: [ AppComponent ]

@@ -14,8 +14,6 @@ import { LatLng } from '../model/latlng';
 export class WinerySearchHeaderComponent implements OnInit {
 
   @Output() placeChanged = new EventEmitter<LatLng>();
-  @Output() aButtonClicked = new EventEmitter<void>();
-  @Input('home') home: boolean = true;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -24,11 +22,6 @@ export class WinerySearchHeaderComponent implements OnInit {
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
   ) {}
-
-
-  triggerAButtonClickedEvent() {
-    this.aButtonClicked.emit();
-  }
 
 //ADD DEBOUNCER AND DISTINCT
   ngOnInit() {

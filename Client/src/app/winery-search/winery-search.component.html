@@ -1,2 +1,5 @@
-<winery-search-header #winerySearch [home]="false" (placeChanged)="winerySearchBody.wineryMap.updateCenter($event)"></winery-search-header>
+<div class="header-container">
+    <header-element [home]="false"></header-element>
+    <winery-search-header #winerySearch (placeChanged)="winerySearchBody.wineryMap.updateCenter($event)"></winery-search-header>
+</div>
 <winery-search-body #winerySearchBody></winery-search-body>
