@@ -34,12 +34,20 @@ ul.home {
 
 li {
   display:table-cell;
-  padding:10px;
+  padding:6px;
+}
+
+li:focus, li:hover {
+  cursor: pointer;
 }
 
 li.home {
   color: white;
-  font-size: 20px;
-  border-color: white;
-  margin-left: 2%;
+  font-size: 18px;
+  margin-left: 6%;
+/*
+  border-radius: 2px;
+  border: solid 1px white;
+  padding: 0;
+  */
 }

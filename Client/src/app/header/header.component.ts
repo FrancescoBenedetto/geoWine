@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,16 @@ import { Component, EventEmitter, Input, Output, NgZone } from '@angular/core';
 export class HeaderElementComponent {
 
   @Input('home') home: true;
-  
-  constructor() {}
+  @Output() loginClick = new EventEmitter();
 
+  constructor(private router: Router) {}
+
+  onLoginClick() {
+    //console.log('clicked');
+    this.loginClick.emit();
+  }
+
+  onSearchClick() {
+    this.router.navigate(['/search']);
+  }
 }

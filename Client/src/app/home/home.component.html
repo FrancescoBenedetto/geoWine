@@ -1,6 +1,10 @@
-<header-element [home]="true"></header-element>
+<header-element (loginClick)="login.showLogin()" [home]="true"></header-element>
 <div class="center" [style.height]="imgHeight" [style.width]="imgWidth">
     <!--  <img class="home-background-img" src="/src/assets/images/home/home-background.jpg" [height]="imgHeight" />
 -->
 </div>
+<alert></alert>
+<login #login></login>
+<!--
 <winery-search-home (aButtonClicked)="redirect()"></winery-search-home>
+-->

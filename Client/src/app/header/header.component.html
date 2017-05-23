@@ -1,8 +1,8 @@
 <div class="header w-row" [class.home]="home">
     <img class="logo-img" src="/src/assets/images/geonery-logo-bw.png" height="40px" width="40px" />
     <ul [class.home]="home">
+        <li [class.home]="home" (click)="onSearchClick()">Esplora</li>
         <li [class.home]="home">Inserisici Una Cantina</li>
-        <li [class.home]="home">Log In</li>
-        <li [class.home]="home">Sign Up</li>
+        <li [class.home]="home" (click)="onLoginClick()">Log In/Registrati</li>
     </ul>
 </div>

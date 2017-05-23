@@ -1,0 +1,33 @@
+.login-container {
+  z-index: 100;
+  height: 30%;
+  width: 30%;
+  margin-left: 65%;
+  margin-top: 5%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 1, 0));
+}
+
+h2 {
+  color: white;
+}
+
+label {
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus {
+    background-color: brown !important;
+    border-color: #93554E;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+
+}
+
+
+.btn-link:hover, .btn-link:active, .btn-link:visited {
+  color: white !important;
+}
